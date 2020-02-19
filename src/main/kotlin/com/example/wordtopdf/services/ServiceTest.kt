@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct
 
 
 @Service
-class ServiceTest() {
+class ServiceTest {
     @PostConstruct
     fun preTest() {
         val docxService = DocxService()
@@ -19,6 +19,7 @@ class ServiceTest() {
         val asset = Asset()
         val docName = "test"
 
+        println("preTest")
         val generatedDocument = docxService.generateTemplate(
                 mapOf(
                         "Dateofpurchase" to date,
@@ -37,7 +38,6 @@ class ServiceTest() {
                 "SPA Template-converted.docx",
                 docName
         )
-        println("preTest")
 
 //        docxConverterService.convertToPDF("D:\\Users\\Viktor VoC\\WordToPdf\\WordToPdf1\\build\\resources\\main\\tempDirectory\\test.docx", "D:\\Users\\Viktor VoC\\WordToPdf\\WordToPdf1\\build\\resources\\main\\tempDirectory\\test.pdf")
     }

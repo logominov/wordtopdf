@@ -27,26 +27,30 @@ repositories {
 }
 
 dependencies {
-	//Spring
+//Spring
 	//compile "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_version"
 	compile("org.springframework.boot:spring-boot-starter-websocket:$spring_boot_version")
-//	compile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
+	compile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
 
-	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.0'
-
-
-	// word to pdf
-	compile "org.apache.poi:poi:4.0.1"
-//	compile "org.apache.poi:poi-ooxml:4.0.1"
-//	compile "org.apache.poi:poi-scratchpad:4.0.1"
-//	compile "org.apache.poi:poi-ooxml-schemas:4.0.1"
-//	compile "org.apache.poi:poi-excelant:4.0.1"
-//	compile "org.apache.poi:poi-examples:4.0.1"
-	compile "fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6"
-	compile "fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6"
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 	implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+
+	//excel/word
+	compile (group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'){
+		exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+	}
+	compile (group: 'org.apache.poi', name: 'poi', version: '4.1.0'){
+		exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+	}
+	// https://mvnrepository.com/artifact/fr.opensagres.xdocreport/org.apache.poi.xwpf.converter.pdf
+	compile group: 'fr.opensagres.xdocreport', name: 'org.apache.poi.xwpf.converter.pdf', version: '1.0.6'
+
+	// pdfbox
+	compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.16'
+	compile group: 'org.apache.pdfbox', name: 'pdfbox-tools', version: '2.0.18'
+
+
 
 }
 

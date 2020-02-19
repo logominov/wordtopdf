@@ -1,10 +1,10 @@
 package services
 
-//import com.voc.webserver.config.PathConfig
-
+import com.example.wordtopdf.config.PathConfig
 import org.apache.poi.openxml4j.opc.OPCPackage
 import org.apache.poi.xwpf.usermodel.XWPFDocument
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Service
 import java.io.File
@@ -16,9 +16,9 @@ import java.nio.file.Paths
 class DocxService {
 
     @Autowired
-    //@Qualifier(PathConfig.TEMP_FOLDER)
-    //lateinit var tempDirectory: Path
-    val tempDirectory: Path = Paths.get("build/resources/main/tempDirectory")
+    @Qualifier(PathConfig.FILES_FOLDER)
+    lateinit var tempDirectory: Path
+//    val tempDirectory: Path = Paths.get("build/resources/main/tempDirectory")
 
     fun generateTemplate(
             textParams: Map<String, String>?,
