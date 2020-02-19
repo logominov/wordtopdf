@@ -1,10 +1,10 @@
 package services
 
 //import com.voc.webserver.config.PathConfig
+
 import org.apache.poi.openxml4j.opc.OPCPackage
 import org.apache.poi.xwpf.usermodel.XWPFDocument
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Service
 import java.io.File
@@ -15,19 +15,16 @@ import java.nio.file.Paths
 @Service
 class DocxService {
 
-
     @Autowired
     //@Qualifier(PathConfig.TEMP_FOLDER)
     //lateinit var tempDirectory: Path
     val tempDirectory: Path = Paths.get("build/resources/main/tempDirectory")
 
-
-
     fun generateTemplate(
-        textParams: Map<String, String>?,
-        tableParams: Map<String, String>?,
-        templateFilename: String,
-        docName: String
+            textParams: Map<String, String>?,
+            tableParams: Map<String, String>?,
+            templateFilename: String,
+            docName: String
     ): File {
         val fileInputStream = ClassPathResource(templateFilename).inputStream
         val doc = XWPFDocument(OPCPackage.open(fileInputStream))
@@ -47,11 +44,11 @@ class DocxService {
         }
 
         if (textParams != null) {
-            for (tbl in doc.getTables()) {
-                for (row in tbl.getRows()) {
-                    for (cell in row.getTableCells()) {
-                        for (p in cell.getParagraphs()) {
-                            for (r in p.getRuns()) {
+            for (tbl in doc.tables) {
+                for (row in tbl.rows) {
+                    for (cell in row.tableCells) {
+                        for (p in cell.paragraphs) {
+                            for (r in p.runs) {
                                 var text: String? = r.getText(0)
                                 tableParams!!.forEach {
                                     if (text != null && text!!.contains(it.key)) {
