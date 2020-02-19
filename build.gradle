@@ -37,14 +37,16 @@ dependencies {
 
 
 	//excel/word
-	compile (group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'){
+	compile (group: 'org.apache.poi', name: 'poi-ooxml', version: '3.15'){
 		exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 	}
-	compile (group: 'org.apache.poi', name: 'poi', version: '4.1.0'){
+	compile (group: 'org.apache.poi', name: 'poi', version: '3.15'){
 		exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 	}
+
 	// https://mvnrepository.com/artifact/fr.opensagres.xdocreport/org.apache.poi.xwpf.converter.pdf
 	compile group: 'fr.opensagres.xdocreport', name: 'org.apache.poi.xwpf.converter.pdf', version: '1.0.6'
+
 
 	// pdfbox
 	compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.16'
