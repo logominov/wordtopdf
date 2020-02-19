@@ -30,7 +30,7 @@ dependencies {
 //Spring
 	//compile "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_version"
 	compile("org.springframework.boot:spring-boot-starter-websocket:$spring_boot_version")
-	compile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
+	//compile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
 
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 	implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"

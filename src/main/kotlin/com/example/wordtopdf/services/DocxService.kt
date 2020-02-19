@@ -15,10 +15,10 @@ import java.nio.file.Paths
 @Service
 class DocxService {
 
-    @Autowired
-    @Qualifier(PathConfig.FILES_FOLDER)
-    lateinit var tempDirectory: Path
-//    val tempDirectory: Path = Paths.get("build/resources/main/tempDirectory")
+//    @Autowired
+//    @Qualifier(PathConfig.FILES_FOLDER)
+//    lateinit var tempDirectory: Path
+    val tempDirectory: Path = Paths.get("build/resources/main/")
 
     fun generateTemplate(
             textParams: Map<String, String>?,
